@@ -2,8 +2,9 @@
 {
     public enum Pick
     {
-        Paper = 0,
+        None = 0,
         Rock = 1,
-        Scissors = 2,
+        Paper = 2,
+        Scissors = 3,
     }
 }

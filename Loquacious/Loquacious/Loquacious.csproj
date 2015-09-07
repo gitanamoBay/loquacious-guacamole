@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -52,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -59,6 +67,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameWindow.xaml.cs">
+      <DependentUpon>GameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -83,6 +94,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,6 +103,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="paper.png" />
+    <Resource Include="rock.png" />
+    <Resource Include="scissors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Loquacious.Ai\Loquacious.Ai.csproj">
+      <Project>{52908f26-911e-44e2-aafc-1a20c7d6694c}</Project>
+      <Name>Loquacious.Ai</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Loquacious.Game\Loquacious.Game.csproj">
+      <Project>{760ec68c-2363-466a-a907-66e96d4ecd51}</Project>
+      <Name>Loquacious.Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Loquacious.Interfaces\Loquacious.Interfaces.csproj">
+      <Project>{801c92ac-dbc1-45a4-a62f-98c5ada9a54a}</Project>
+      <Name>Loquacious.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Loquacious.Values\Loquacious.Values.csproj">
+      <Project>{04d77553-7f1b-4181-bbbc-8be2de7215ed}</Project>
+      <Name>Loquacious.Values</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

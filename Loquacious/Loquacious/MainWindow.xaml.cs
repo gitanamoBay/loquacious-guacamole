@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Autofac;
+using Loquacious.Interfaces;
 
 namespace Loquacious
 {
@@ -23,6 +25,22 @@ namespace Loquacious
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void OnePlayer_Click(object sender, RoutedEventArgs e)
+        {
+            OpenWindow(null);
+        }
+
+        private void TwoPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            OpenWindow(null);
+        }
+
+        public void OpenWindow( IPlayer playertwo)
+        {
+            var gamePlaywindow = App.Container.Resolve<IGamePlayWindow>();
+            gamePlaywindow.DisplayGame();
         }
     }
 }
