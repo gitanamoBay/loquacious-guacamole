@@ -21,9 +21,10 @@ namespace Loquacious
     /// </summary>
     public partial class GameWindow : Window,IGamePlayWindow
     {
-        public GameWindow()
+        public GameWindow(List<IPlayer> players)
         {
             InitializeComponent();
+            
         }
 
         public void DisplayGame()

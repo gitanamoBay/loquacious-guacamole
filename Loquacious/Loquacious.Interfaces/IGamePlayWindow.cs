@@ -9,5 +9,6 @@ namespace Loquacious.Interfaces
     public interface IGamePlayWindow
     {
         void DisplayGame();
+        IGame Game { get; set; }
     }
 }
