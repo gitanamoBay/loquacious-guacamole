@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Loquacious.Values;
 
 namespace Loquacious.Interfaces
@@ -13,5 +14,6 @@ namespace Loquacious.Interfaces
         Result Result { get; }
         double CountDown { get; }
         double TimeAllowedForPicks { get; }
+        IEnumerable<IPlayer> Players { get; }
     }
 }

@@ -1,30 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Loquacious.Interfaces;
+using Loquacious.Values;
 
 namespace Loquacious
 {
     /// <summary>
     /// Interaction logic for GameWindow.xaml
     /// </summary>
-    public partial class GameWindow : Window,IGamePlayWindow
+    public partial class GameWindow : IGamePlayWindow
     {
         public GameWindow(IGame game)
         {
             InitializeComponent();
             Game = game;
+            Game.GameEnds = OnGameCompleted;
         }
 
         public IGame Game { get; set; }
@@ -38,21 +32,69 @@ namespace Loquacious
         {
             if (e.IsUp)
             {
+                var players = Game.Players.Where(x => x is INonNpc).ToList();
+                foreach (INonNpc player in players)
+                {
+                    if (player.KeysAccepted.Contains(e.Key))
+                    {
+                        player.KeyStroke(e.Key);
+                    }
+                }
             }
         }
 
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
             StartGameButton.Visibility = Visibility.Hidden;
+            Game.StartGame();
+        }
 
-            var t = new System.Timers.Timer(1000) {AutoReset = false};
-            t.Start();
-            t.Elapsed += (o, args) =>
+        private void OnGameCompleted(Result result, int winner)
+        {
+            Dispatcher.Invoke(() =>
             {
-                Dispatcher.Invoke(() => StartGameButton.Visibility = Visibility.Visible);
-            };
+                StartGameButton.Visibility = Visibility.Visible;
+                DisplayPicks();
+
+                UpdateScores(result, winner);
+            });
+        }
+
+        private void DisplayPicks()
+        {
+            setImageForPick(Game.Players.ElementAt(0).Pick,PlayerOneImage);
+            setImageForPick(Game.Players.ElementAt(1).Pick,PlayerTwoImage);
+        }
+
+        private void setImageForPick(Pick pick, Image image)
+        {
+            switch (pick)
+            {
+                case Pick.None:
+                    image.Source = new BitmapImage();
+                    break;
+                case Pick.Paper:
+                    image.Source = new BitmapImage(new Uri(@"/paper.png", UriKind.Relative));
+                    break;
+                case Pick.Rock:
+                    image.Source = new BitmapImage(new Uri(@"/rock.png", UriKind.Relative));
+                    break;
+                case Pick.Scissors:
+                    image.Source = new BitmapImage(new Uri(@"/scissors.png", UriKind.Relative));
+                    break;
+            }
         }
 
 
+        private void UpdateScores(Result result, int winner)
+        {
+            if (result == Result.Victory)
+            {
+                var winnerValue = winner == 1 ? PlayerOneScore : PlayerTwoScore;
+                var currentScore = int.Parse((string) winnerValue.Content);
+                currentScore++;
+                winnerValue.Content = currentScore;
+            }
+        }
     }
 }

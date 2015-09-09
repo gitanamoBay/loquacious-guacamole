@@ -24,12 +24,16 @@ namespace Loquacious
             base.OnStartup(e);
 
             var builder = new ContainerBuilder();
+
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).AsImplementedInterfaces();
+
             Ai.Register.RegisterTypes(builder);
             Game.Register.RegisterTypes(builder);
+
             Container = builder.Build();
 
-
+            Ai.Register.Container = Container;
+            Game.Register.Container = Container;
         }
     }
 }

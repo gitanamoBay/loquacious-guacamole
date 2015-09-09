@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Loquacious.Ai;
 using Loquacious.Interfaces;
 using Loquacious.Values;
 
@@ -10,11 +8,19 @@ namespace Loquacious.Game
 {
     public class SinglePlayerGame : IGame
     {
-        public IEnumerable<IPlayer> Players; 
+        public SinglePlayerGame()
+        {
+            Players = new List<IPlayer>() {new PlayerOne(),new ArtificalIntelligence()};
+        }
+
+        public IEnumerable<IPlayer> Players { get; }
 
         public void StartGame()
         {
-            
+            if (GameEnds != null)
+            {
+                GameEnds(Result.None, 0);
+            }
         }
 
         public Action CountDownTickOne { get; set; }
