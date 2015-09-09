@@ -4,7 +4,7 @@ namespace Loquacious.Interfaces
 {
     public interface IPlayer
     {
-        bool IsAi { get; set; }
+        bool IsAi { get; }
         Pick Pick { get; }
     }
 }

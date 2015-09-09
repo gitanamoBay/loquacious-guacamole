@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Loquacious.Interfaces;
 using Loquacious.Values;
 
@@ -10,7 +7,7 @@ namespace Loquacious.Ai
 {
     public class RandomStratergy:IStratergy
     {
-        public int DifficultRequired
+        public int DifficultyRequired
         {
             get { return 0; }
         }
@@ -25,13 +22,13 @@ namespace Loquacious.Ai
             get { return 1; }
         }
 
-        private Pick _pick;
-
-        public Pick SuggestedPick { get; }
+        public Pick SuggestedPick {get; private set; }
+        
         public void Consider(IEnumerable<Pick> previousPicks)
         {
-           Random r = new Random();
-           _pick = (Pick)r.Next(3);
+           SuggestedPick = (Pick)new Random().Next(3);
         }
     }
+
+
 }

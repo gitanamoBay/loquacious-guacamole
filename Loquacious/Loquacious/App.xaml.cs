@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using Autofac;
+using Loquacious.Ai;
 using Loquacious.Interfaces;
 
 namespace Loquacious
@@ -22,7 +24,9 @@ namespace Loquacious
             base.OnStartup(e);
 
             var builder = new ContainerBuilder();
-            builder.RegisterType<GameWindow>().As<IGamePlayWindow>();
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).AsImplementedInterfaces();
+            Ai.Register.RegisterTypes(builder);
+            Game.Register.RegisterTypes(builder);
             Container = builder.Build();
 
 

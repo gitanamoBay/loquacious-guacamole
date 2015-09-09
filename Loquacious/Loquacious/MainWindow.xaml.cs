@@ -29,17 +29,19 @@ namespace Loquacious
 
         private void OnePlayer_Click(object sender, RoutedEventArgs e)
         {
-            OpenWindow(null);
+            OpenWindow(false);
         }
 
         private void TwoPlayer_Click(object sender, RoutedEventArgs e)
         {
-            OpenWindow(null);
+            OpenWindow(true);
         }
 
-        public void OpenWindow( IPlayer playertwo)
+        public void OpenWindow(bool playertwo)
         {
-            var gamePlaywindow = App.Container.Resolve<IGamePlayWindow>();
+            var game = App.Container.Resolve<IGame>();
+
+            var gamePlaywindow = App.Container.Resolve<IGamePlayWindow>(new NamedParameter("game", game));
             gamePlaywindow.DisplayGame();
         }
     }
