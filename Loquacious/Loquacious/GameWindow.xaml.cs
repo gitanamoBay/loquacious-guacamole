@@ -10,41 +10,28 @@ using Loquacious.Values;
 namespace Loquacious
 {
     /// <summary>
-    /// Interaction logic for GameWindow.xaml
+    ///     Interaction logic for GameWindow.xaml
     /// </summary>
     public partial class GameWindow : IGamePlayWindow
     {
+        private int _leftScore;
+        private int _rightScore;
+
         public GameWindow(IGame game)
         {
             InitializeComponent();
             Game = game;
             Game.GameEnds = OnGameCompleted;
-            Game.CountDownTickOne = () => {
-                Dispatcher.Invoke(() =>
-                {
-                    CountDownLabel.Content = "Rock";
-                });
-            };
-            Game.CountDownTickTwo = () => {
-                Dispatcher.Invoke(() =>
-                {
-                    CountDownLabel.Content = "Paper";
-
-                });
-            };
-            Game.CountDownTickGo = () => {
-                Dispatcher.Invoke(() =>
-                {
-                    CountDownLabel.Content = "Scissors";
-                });
-            };
+            Game.CountDownTickOne = () => { Dispatcher.Invoke(() => { CountDownLabel.Content = "Rock"; }); };
+            Game.CountDownTickTwo = () => { Dispatcher.Invoke(() => { CountDownLabel.Content = "Paper"; }); };
+            Game.CountDownTickGo = () => { Dispatcher.Invoke(() => { CountDownLabel.Content = "Scissors"; }); };
         }
 
         public IGame Game { get; set; }
 
         public void DisplayGame()
         {
-            this.Show();
+            Show();
         }
 
         private void KeyWasPressed(object sender, KeyEventArgs e)
@@ -72,7 +59,6 @@ namespace Loquacious
         {
             Dispatcher.Invoke(() =>
             {
-
                 StartGameButton.Visibility = Visibility.Visible;
                 DisplayPicks();
 
@@ -82,8 +68,8 @@ namespace Loquacious
 
         private void DisplayPicks()
         {
-            setImageForPick(Game.Players.ElementAt(0).Pick,PlayerOneImage);
-            setImageForPick(Game.Players.ElementAt(1).Pick,PlayerTwoImage);
+            setImageForPick(Game.Players.ElementAt(0).Pick, PlayerOneImage);
+            setImageForPick(Game.Players.ElementAt(1).Pick, PlayerTwoImage);
         }
 
         private void setImageForPick(Pick pick, Image image)
@@ -105,29 +91,25 @@ namespace Loquacious
             }
         }
 
-        private int leftScore;
-        private int rightScore;
-
         private void UpdateScores(Result result, int winner)
         {
             if (result == Result.Victory)
             {
                 if (winner == 0)
-                    leftScore++;
+                    _leftScore++;
                 else
-                    rightScore++;
+                    _rightScore++;
 
-                PlayerOneScore.Content = leftScore;
-                PlayerTwoScore.Content = rightScore;
+                PlayerOneScore.Content = _leftScore;
+                PlayerTwoScore.Content = _rightScore;
 
-                CountDownLabel.Content = "Player " + (winner+1) + " wins.";
+                CountDownLabel.Content = "Player " + (winner + 1) + " wins.";
             }
             else
             {
                 if (result == Result.NoPicks)
                 {
                     CountDownLabel.Content = "no picks.";
-
                 }
                 else
                     CountDownLabel.Content = "tie.";

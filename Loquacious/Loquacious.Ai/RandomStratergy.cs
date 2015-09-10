@@ -5,7 +5,7 @@ using Loquacious.Values;
 
 namespace Loquacious.Ai
 {
-    public class RandomStratergy:IStratergy
+    public class RandomStratergy : IStratergy
     {
         public int DifficultyRequired
         {
@@ -22,13 +22,11 @@ namespace Loquacious.Ai
             get { return 1; }
         }
 
-        public Pick SuggestedPick {get; private set; }
-        
+        public Pick SuggestedPick { get; private set; }
+
         public void Consider(IReadOnlyList<Pick> previousPicks)
         {
-           SuggestedPick = (Pick)new Random().Next(1,4);
+            SuggestedPick = (Pick) new Random().Next(1, 4);
         }
     }
-
-
 }

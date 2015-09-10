@@ -6,14 +6,14 @@ namespace Loquacious.Game
 {
     public class PlayerTwo : BasePlayer
     {
-        public override int Slot { get { return 2; } }
+        public override int Slot
+        {
+            get { return 2; }
+        }
 
         public override IReadOnlyCollection<Key> KeysAccepted
         {
-            get
-            {
-                return new ReadOnlyCollection<Key>(new[] { Key.Left, Key.Down, Key.Right });
-            }
+            get { return new ReadOnlyCollection<Key>(new[] {Key.Left, Key.Down, Key.Right}); }
         }
     }
 }

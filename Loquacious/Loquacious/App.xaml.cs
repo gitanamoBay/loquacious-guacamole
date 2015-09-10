@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using System.Windows;
 using Autofac;
 using Loquacious.Ai;
-using Loquacious.Interfaces;
 
 namespace Loquacious
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    ///     Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
-        public static IContainer Container{ get; set; }
+        public static IContainer Container { get; set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -27,12 +20,12 @@ namespace Loquacious
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).AsImplementedInterfaces();
 
-            Ai.Register.RegisterTypes(builder);
+            Register.RegisterTypes(builder);
             Game.Register.RegisterTypes(builder);
 
             Container = builder.Build();
 
-            Ai.Register.Container = Container;
+            Register.Container = Container;
             Game.Register.Container = Container;
         }
     }

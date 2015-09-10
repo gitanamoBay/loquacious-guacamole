@@ -7,21 +7,17 @@ using Loquacious.Values;
 
 namespace Loquacious.Game
 {
-    public abstract class BasePlayer:INonNpc
+    public abstract class BasePlayer : INonNpc
     {
+        private readonly object _keyLock = new object();
+        private readonly List<Pick> _previousPicks = new List<Pick>();
         private volatile bool _keysOpen;
-        private object _keyLock = new object();
-        private List<Pick> _previousPicks = new List<Pick>();
         public abstract int Slot { get; }
         public Pick Pick { get; private set; }
 
-
         public IReadOnlyList<Pick> PreviousPicks
         {
-            get
-            {
-                return new ReadOnlyCollection<Pick>(_previousPicks);
-            }
+            get { return new ReadOnlyCollection<Pick>(_previousPicks); }
         }
 
         public abstract IReadOnlyCollection<Key> KeysAccepted { get; }

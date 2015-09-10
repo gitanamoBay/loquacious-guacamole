@@ -1,6 +1,4 @@
-﻿
-
-namespace Loquacious.Values
+﻿namespace Loquacious.Values
 {
     public enum Result
     {

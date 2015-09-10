@@ -7,6 +7,6 @@ namespace Loquacious.Interfaces
     {
         int Slot { get; }
         Pick Pick { get; }
-        IReadOnlyList<Pick> PreviousPicks { get; } 
+        IReadOnlyList<Pick> PreviousPicks { get; }
     }
 }

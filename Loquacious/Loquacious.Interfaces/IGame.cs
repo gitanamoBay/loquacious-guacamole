@@ -7,14 +7,14 @@ namespace Loquacious.Interfaces
     public interface IGame
     {
         GameMode GameMode { get; }
-        void StartGame();
         Action CountDownTickOne { get; set; }
         Action CountDownTickTwo { get; set; }
         Action CountDownTickGo { get; set; }
-        Action<Result,int> GameEnds { get; set; }
+        Action<Result, int> GameEnds { get; set; }
         Result Result { get; }
         double CountDown { get; }
         double TimeAllowedForPicks { get; }
         IEnumerable<IPlayer> Players { get; }
+        void StartGame();
     }
 }

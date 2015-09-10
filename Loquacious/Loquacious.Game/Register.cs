@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Autofac;
-using Loquacious.Interfaces;
+﻿using Autofac;
 
 namespace Loquacious.Game
 {

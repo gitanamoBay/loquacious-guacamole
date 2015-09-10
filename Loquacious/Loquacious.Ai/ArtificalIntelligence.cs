@@ -7,11 +7,20 @@ using Loquacious.Values;
 
 namespace Loquacious.Ai
 {
-    public class ArtificalIntelligence:IAi
+    public class ArtificalIntelligence : IAi
     {
-        public int Slot { get { return 2; } }
+        private readonly List<Pick> _previousPicks = new List<Pick>();
 
-        private List<Pick> _previousPicks = new List<Pick>();  
+        public ArtificalIntelligence(IEnumerable<IStratergy> strats)
+        {
+            Stratergies = strats;
+        }
+
+        public int Slot
+        {
+            get { return 2; }
+        }
+
         public Pick Pick
         {
             get { return _previousPicks.Last(); }
@@ -36,18 +45,9 @@ namespace Loquacious.Ai
             get { return 10; }
         }
 
-
-        public ArtificalIntelligence(IEnumerable<IStratergy> strats)
-        {
-            Stratergies = strats;
-        }
-
         public IReadOnlyList<Pick> PreviousPicks
         {
-            get
-            {
-                return new ReadOnlyCollection<Pick>(_previousPicks);
-            }
+            get { return new ReadOnlyCollection<Pick>(_previousPicks); }
         }
     }
 }
