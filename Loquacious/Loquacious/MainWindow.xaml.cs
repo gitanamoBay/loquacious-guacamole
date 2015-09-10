@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Autofac;
 using Loquacious.Interfaces;
+using Loquacious.Values;
 
 namespace Loquacious
 {
@@ -39,7 +40,7 @@ namespace Loquacious
 
         public void OpenWindow(bool playertwo)
         {
-            var game = App.Container.Resolve<IGame>();
+            var game =  App.Container.Resolve<IEnumerable<IGame>>().Single(x => x.GameMode == (playertwo?GameMode.PvsP:GameMode.PvsAi));
 
             var gamePlaywindow = App.Container.Resolve<IGamePlayWindow>(new NamedParameter("game", game));
             gamePlaywindow.DisplayGame();

@@ -6,6 +6,7 @@ namespace Loquacious.Interfaces
 {
     public interface IGame
     {
+        GameMode GameMode { get; }
         void StartGame();
         Action CountDownTickOne { get; set; }
         Action CountDownTickTwo { get; set; }

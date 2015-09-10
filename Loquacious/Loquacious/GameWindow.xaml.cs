@@ -19,6 +19,25 @@ namespace Loquacious
             InitializeComponent();
             Game = game;
             Game.GameEnds = OnGameCompleted;
+            Game.CountDownTickOne = () => {
+                Dispatcher.Invoke(() =>
+                {
+                    CountDownLabel.Content = "Rock";
+                });
+            };
+            Game.CountDownTickTwo = () => {
+                Dispatcher.Invoke(() =>
+                {
+                    CountDownLabel.Content = "Paper";
+
+                });
+            };
+            Game.CountDownTickGo = () => {
+                Dispatcher.Invoke(() =>
+                {
+                    CountDownLabel.Content = "Scissors";
+                });
+            };
         }
 
         public IGame Game { get; set; }
@@ -53,6 +72,7 @@ namespace Loquacious
         {
             Dispatcher.Invoke(() =>
             {
+
                 StartGameButton.Visibility = Visibility.Visible;
                 DisplayPicks();
 
@@ -85,15 +105,32 @@ namespace Loquacious
             }
         }
 
+        private int leftScore;
+        private int rightScore;
 
         private void UpdateScores(Result result, int winner)
         {
             if (result == Result.Victory)
             {
-                var winnerValue = winner == 1 ? PlayerOneScore : PlayerTwoScore;
-                var currentScore = int.Parse((string) winnerValue.Content);
-                currentScore++;
-                winnerValue.Content = currentScore;
+                if (winner == 0)
+                    leftScore++;
+                else
+                    rightScore++;
+
+                PlayerOneScore.Content = leftScore;
+                PlayerTwoScore.Content = rightScore;
+
+                CountDownLabel.Content = "Player " + (winner+1) + " wins.";
+            }
+            else
+            {
+                if (result == Result.NoPicks)
+                {
+                    CountDownLabel.Content = "no picks.";
+
+                }
+                else
+                    CountDownLabel.Content = "tie.";
             }
         }
     }

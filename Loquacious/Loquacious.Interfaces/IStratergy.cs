@@ -9,6 +9,6 @@ namespace Loquacious.Interfaces
         int MinimumConfidence { get; }
         int Confidence { get; }
         Pick SuggestedPick { get; }
-        void Consider(IEnumerable<Pick> previousPicks);
+        void Consider(IReadOnlyList<Pick> previousPicks);
     }
 }

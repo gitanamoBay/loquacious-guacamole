@@ -1,10 +1,12 @@
-﻿using Loquacious.Values;
+﻿using System.Collections.Generic;
+using Loquacious.Values;
 
 namespace Loquacious.Interfaces
 {
     public interface IPlayer
     {
-        bool IsAi { get; }
+        int Slot { get; }
         Pick Pick { get; }
+        IReadOnlyList<Pick> PreviousPicks { get; } 
     }
 }

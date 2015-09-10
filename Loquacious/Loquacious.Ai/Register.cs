@@ -15,7 +15,7 @@ namespace Loquacious.Ai
         public static void RegisterTypes(ContainerBuilder builder)
         {
             builder.RegisterType<RandomStratergy>().As<IStratergy>();
-            builder.RegisterType<ArtificalIntelligence>().As<IAi>();
+            builder.RegisterType<ArtificalIntelligence>().AsImplementedInterfaces();
         }
     }
 }

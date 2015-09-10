@@ -11,7 +11,10 @@ namespace Loquacious.Game
 
         public static void RegisterTypes(ContainerBuilder builder)
         {
-            builder.RegisterType<SinglePlayerGame>().As<IGame>();
+            builder.RegisterType<SinglePlayer>().AsImplementedInterfaces();
+            builder.RegisterType<MultiPlayer>().AsImplementedInterfaces();
+            builder.RegisterType<PlayerOne>().AsImplementedInterfaces();
+            builder.RegisterType<PlayerTwo>().AsImplementedInterfaces();
         }
     }
 }

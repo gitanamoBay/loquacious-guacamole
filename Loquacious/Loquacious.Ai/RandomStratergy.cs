@@ -24,9 +24,9 @@ namespace Loquacious.Ai
 
         public Pick SuggestedPick {get; private set; }
         
-        public void Consider(IEnumerable<Pick> previousPicks)
+        public void Consider(IReadOnlyList<Pick> previousPicks)
         {
-           SuggestedPick = (Pick)new Random().Next(3);
+           SuggestedPick = (Pick)new Random().Next(1,4);
         }
     }
 

@@ -10,6 +10,5 @@ namespace Loquacious.Interfaces
         IReadOnlyCollection<Key> KeysAccepted { get; }
         void OpenControls();
         void CloseControls();
-        IReadOnlyCollection<Pick> PreviousPicks { get; } 
     }
 }
