@@ -32,7 +32,7 @@ namespace Loquacious.Ai
                 x => x.Consider(previousPicks));
 
             _previousPicks.Add(
-                Stratergies.Where(x => x.Confidence > x.MinimumConfidence)
+                Stratergies.Where(x => x.Confidence > x.MinimumConfidence && x.DifficultyRequired < Difficulty)
                     .OrderByDescending(y => y.Confidence)
                     .First()
                     .SuggestedPick);

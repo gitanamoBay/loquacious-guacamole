@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loquacious", "Loquacious\Loquacious.csproj", "{50697731-6927-46D6-9FD9-92FF933AC150}"
@@ -13,32 +13,38 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loquacious.Ai", "Loquacious
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loquacious.Values", "Loquacious.Values\Loquacious.Values.csproj", "{04D77553-7F1B-4181-BBBC-8BE2DE7215ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loquacious.Ai.Tests", "Loquacious.Ai.Tests\Loquacious.Ai.Tests.csproj", "{33654DF6-76DB-43FA-A3BF-F1B29A28601C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{04D77553-7F1B-4181-BBBC-8BE2DE7215ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04D77553-7F1B-4181-BBBC-8BE2DE7215ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04D77553-7F1B-4181-BBBC-8BE2DE7215ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04D77553-7F1B-4181-BBBC-8BE2DE7215ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{50697731-6927-46D6-9FD9-92FF933AC150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50697731-6927-46D6-9FD9-92FF933AC150}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50697731-6927-46D6-9FD9-92FF933AC150}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50697731-6927-46D6-9FD9-92FF933AC150}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52908F26-911E-44E2-AAFC-1A20C7D6694C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52908F26-911E-44E2-AAFC-1A20C7D6694C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52908F26-911E-44E2-AAFC-1A20C7D6694C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52908F26-911E-44E2-AAFC-1A20C7D6694C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{760EC68C-2363-466A-A907-66E96D4ECD51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{760EC68C-2363-466A-A907-66E96D4ECD51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{760EC68C-2363-466A-A907-66E96D4ECD51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{760EC68C-2363-466A-A907-66E96D4ECD51}.Release|Any CPU.Build.0 = Release|Any CPU
 		{801C92AC-DBC1-45A4-A62F-98C5ADA9A54A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{801C92AC-DBC1-45A4-A62F-98C5ADA9A54A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{801C92AC-DBC1-45A4-A62F-98C5ADA9A54A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{801C92AC-DBC1-45A4-A62F-98C5ADA9A54A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{760EC68C-2363-466A-A907-66E96D4ECD51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{760EC68C-2363-466A-A907-66E96D4ECD51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{760EC68C-2363-466A-A907-66E96D4ECD51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{760EC68C-2363-466A-A907-66E96D4ECD51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52908F26-911E-44E2-AAFC-1A20C7D6694C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52908F26-911E-44E2-AAFC-1A20C7D6694C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52908F26-911E-44E2-AAFC-1A20C7D6694C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52908F26-911E-44E2-AAFC-1A20C7D6694C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04D77553-7F1B-4181-BBBC-8BE2DE7215ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D77553-7F1B-4181-BBBC-8BE2DE7215ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D77553-7F1B-4181-BBBC-8BE2DE7215ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D77553-7F1B-4181-BBBC-8BE2DE7215ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33654DF6-76DB-43FA-A3BF-F1B29A28601C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33654DF6-76DB-43FA-A3BF-F1B29A28601C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33654DF6-76DB-43FA-A3BF-F1B29A28601C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33654DF6-76DB-43FA-A3BF-F1B29A28601C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
