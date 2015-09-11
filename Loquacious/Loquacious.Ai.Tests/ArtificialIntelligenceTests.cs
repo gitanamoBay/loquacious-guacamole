@@ -1,6 +1,4 @@
-﻿using System;
-using NUnit.Framework;
-using Loquacious.Ai;
+﻿using NUnit.Framework;
 using NSubstitute;
 using System.Collections.Generic;
 using Loquacious.Interfaces;

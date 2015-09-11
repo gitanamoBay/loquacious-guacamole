@@ -10,7 +10,7 @@ namespace Loquacious.Game
     public abstract class BasePlayer : INonNpc
     {
         private readonly object _keyLock = new object();
-        private readonly List<Pick> _previousPicks = new List<Pick>();
+        private List<Pick> _previousPicks = new List<Pick>();
         private volatile bool _keysOpen;
         public abstract int Slot { get; }
         public Pick Pick { get; private set; }
@@ -33,17 +33,23 @@ namespace Loquacious.Game
             _keysOpen = false;
         }
 
-        public void KeyStroke(Key key)
+        public bool KeyStroke(Key key)
         {
             lock (_keyLock)
             {
                 if (_keysOpen)
                 {
-                    Pick = (Pick) (KeysAccepted.ToList().IndexOf(key) + 1);
+
+                    var keyidx = KeysAccepted.ToList().IndexOf(key);
+                    if (keyidx == -1)
+                        return false;
+                    Pick = (Pick) (keyidx + 1);
                     _previousPicks.Add(Pick);
                     _keysOpen = false;
+                    return true;
                 }
             }
+            return false;
         }
     }
 }

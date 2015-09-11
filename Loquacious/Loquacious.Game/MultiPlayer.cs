@@ -17,5 +17,15 @@ namespace Loquacious.Game
         {
             get { return GameMode.PvsP; }
         }
+
+        public override double CountDown
+        {
+            get { return 3000; }
+        }
+
+        public override double TimeAllowedForPicks
+        {
+            get { return 1000; }
+        }
     }
 }

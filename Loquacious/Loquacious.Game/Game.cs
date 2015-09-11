@@ -8,45 +8,47 @@ using Loquacious.Values;
 
 namespace Loquacious.Game
 {
-    public abstract class Game : IGame
+    public class Game : IGame
     {
         public Game(IEnumerable<IPlayer> list)
         {
             Players = list;
         }
 
-        public abstract GameMode GameMode { get; }
+        public virtual GameMode GameMode
+        {
+            get { return  GameMode.None; }
+        }
 
         public IEnumerable<IPlayer> Players { get; }
         public Action CountDownTickOne { get; set; }
         public Action CountDownTickTwo { get; set; }
         public Action CountDownTickGo { get; set; }
         public Action<Result, int> GameEnds { get; set; }
-        public Result Result { get; }
 
-        public double CountDown
+        public virtual double CountDown
         {
-            get { return 3000; }
+            get { return 0; }
         }
 
-        public double TimeAllowedForPicks
+        public virtual double TimeAllowedForPicks
         {
-            get { return 1000; }
+            get { return 0; }
         }
 
         public void StartGame()
         {
             Task.Factory.StartNew(() =>
             {
-                Thread.Sleep(1000);
+                Thread.Sleep((int)CountDown/3);
                 if (CountDownTickOne != null)
                     CountDownTickOne();
 
-                Thread.Sleep(1000);
+                Thread.Sleep((int)CountDown / 3);
                 if (CountDownTickTwo != null)
                     CountDownTickTwo();
 
-                Thread.Sleep(1000);
+                Thread.Sleep((int)CountDown / 3);
                 if (CountDownTickGo != null)
                     CountDownTickGo();
 

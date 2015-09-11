@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loquacious.Values", "Loquac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loquacious.Ai.Tests", "Loquacious.Ai.Tests\Loquacious.Ai.Tests.csproj", "{33654DF6-76DB-43FA-A3BF-F1B29A28601C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loquacious.Game.Tests", "Loquacious.Game.Tests\Loquacious.Game.Tests.csproj", "{C894164C-7A5C-4378-9075-B3CE50746588}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{33654DF6-76DB-43FA-A3BF-F1B29A28601C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33654DF6-76DB-43FA-A3BF-F1B29A28601C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33654DF6-76DB-43FA-A3BF-F1B29A28601C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C894164C-7A5C-4378-9075-B3CE50746588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C894164C-7A5C-4378-9075-B3CE50746588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C894164C-7A5C-4378-9075-B3CE50746588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C894164C-7A5C-4378-9075-B3CE50746588}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
